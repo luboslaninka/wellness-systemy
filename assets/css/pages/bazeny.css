@@ -1,0 +1,2 @@
+/* Page composition only. Each content section has its own stylesheet. */
+.pools-page figure{margin:0}.pools-page main{overflow:clip}.pools-page img{max-width:100%}
