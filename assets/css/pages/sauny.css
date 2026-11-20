@@ -1,13 +1,22 @@
-/* Vzorová podstránka Sauny.
+/* Vzorová podstránka Sauny – štýl blízky macOS.
    Načítava sa po shared/base.css a pages/home.css (hlavička, premenné, schválené základy).
    Všetky pravidlá sú obmedzené na .sauny-page, aby neovplyvnili homepage ani iné stránky. */
 
 .sauny-page{
  --sp-deep:#020e1c;
- --sp-card:#08233d;
+ --sp-gray:#f5f5f7;
+ --sp-hairline:rgba(7,49,91,.1);
  --sp-cta:#da9f55;
- --sp-cta-border:#cb9c47;
- --sp-content:1280px;
+ --sp-cta-top:#e4ae6a;
+ --sp-radius:20px;
+ --sp-radius-inner:14px;
+ --sp-radius-control:10px;
+ --sp-shadow:0 1px 2px rgba(7,30,56,.05),0 8px 24px rgba(7,30,56,.07),0 24px 60px rgba(7,30,56,.07);
+ --sp-shadow-hover:0 2px 4px rgba(7,30,56,.06),0 14px 34px rgba(7,30,56,.1),0 34px 80px rgba(7,30,56,.1);
+ --sp-glass:rgba(16,38,62,.42);
+ --sp-glass-border:rgba(255,255,255,.18);
+ --sp-spring:cubic-bezier(.25,1.25,.5,1);
+ --sp-content:1240px;
  --sp-gutter:max(32px,calc((100% - var(--sp-content))/2));
  background:var(--sp-deep);
 }
@@ -15,94 +24,86 @@
 .sauny-page [id]{scroll-margin-top:24px}
 @media(prefers-reduced-motion:no-preference){html:has(.sauny-page){scroll-behavior:smooth}}
 
-/* ---------- Spoločné drobné prvky ---------- */
-.sauny-page .sp-eyebrow{display:flex;align-items:center;gap:13px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--blue)}
-.sauny-page .sp-eyebrow:before{content:'';width:23px;height:1px;background:currentColor;flex:none}
-.sauny-page .sp-eyebrow span{font-family:var(--heading);letter-spacing:.5px;color:var(--navy)}
-.sauny-page .sp-eyebrow-light{color:#e5e9e9;text-shadow:0 1px 10px rgba(2,20,36,.6)}
-.sauny-page .sp-eyebrow-light:before{background:var(--light-blue)}
+/* ---------- Tlačidlá a odkazy ---------- */
+.sauny-page .sp-button{display:inline-flex;align-items:center;gap:12px;padding:13px 22px;border-radius:var(--sp-radius-control);border:1px solid rgba(0,0,0,.08);background:linear-gradient(180deg,var(--sp-cta-top),var(--sp-cta));color:#fff;font-size:16px;font-weight:600;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 2px rgba(0,0,0,.18),0 6px 16px rgba(218,159,85,.28);transition:filter .2s,transform .3s var(--sp-spring)}
+.sauny-page .sp-button:hover{filter:brightness(1.07)}
+.sauny-page .sp-button:active{transform:scale(.97);filter:brightness(.95)}
+.sauny-page .sp-button svg{width:17px;height:17px}
 
-.sauny-page .sp-button{display:inline-flex;align-items:center;gap:16px;padding:14px 24px;border:1px solid var(--sp-cta-border);border-radius:30px;background:var(--sp-cta);color:#fff;font-size:16px;font-weight:600;white-space:nowrap;transition:background .25s,border-color .25s,color .25s}
-.sauny-page .sp-button:hover{background:var(--cream);border-color:var(--cream);color:var(--navy)}
-.sauny-page .sp-button svg{width:18px;height:18px}
+.sauny-page .sp-link{display:inline-flex;align-items:center;gap:6px;font-size:17px;font-weight:500;color:#0a6cc4;transition:color .2s}
+.sauny-page .sp-link svg{width:16px;height:16px;transition:transform .3s var(--sp-spring)}
+.sauny-page .sp-link:hover{color:var(--navy)}
+.sauny-page .sp-link:hover svg{transform:translateX(3px)}
 
-.sauny-page .sp-link{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--light-blue);padding-bottom:5px;transition:color .25s,border-color .25s}
-.sauny-page .sp-link:hover{color:var(--blue);border-color:var(--blue)}
-.sauny-page .sp-link svg{width:14px;height:14px}
-
-/* ---------- Hero: pevná fotografia a dlaždice typov ---------- */
-.sauny-page .sp-hero{position:relative;isolation:isolate;padding-bottom:64px;background-color:var(--sp-deep);background-image:url("../../images/shared/wave-texture.svg");background-size:cover;background-position:center bottom}
-.sauny-page .sp-hero-photo{position:absolute;inset:0 0 150px;z-index:-1;overflow:hidden;border-radius:0 0 24px 24px;box-shadow:0 3px 0 #06182b,0 9px 0 -3px #031020,0 32px 52px #000b1880}
+/* ---------- Hero: pevná fotografia a sklenené dlaždice ---------- */
+.sauny-page .sp-hero{position:relative;isolation:isolate;padding-bottom:72px;background-color:var(--sp-deep);background-image:url("../../images/shared/wave-texture.svg");background-size:cover;background-position:center bottom}
+.sauny-page .sp-hero-photo{position:absolute;inset:0 0 150px;z-index:-1;overflow:hidden;border-radius:0 0 28px 28px;box-shadow:0 30px 60px rgba(0,8,20,.45)}
 .sauny-page .sp-hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.sauny-page .sp-hero-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,24,42,.55) 0%,rgba(3,24,42,.25) 30%,rgba(3,24,42,.45) 62%,rgba(3,24,42,.85) 100%)}
+.sauny-page .sp-hero-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,24,42,.55) 0%,rgba(3,24,42,.22) 30%,rgba(3,24,42,.42) 62%,rgba(3,24,42,.82) 100%)}
 .sauny-page .sp-hero-intro{min-height:clamp(560px,calc(100svh - 120px),820px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:150px 24px 210px;color:var(--cream)}
-.sauny-page .sp-hero-intro h1{font-family:var(--heading);font-weight:400;font-size:clamp(48px,5vw,88px);line-height:1.06;letter-spacing:-.02em;color:#eee8dd;margin-top:22px;text-shadow:0 2px 24px rgba(2,20,36,.45)}
-.sauny-page .sp-hero-intro h1:after{content:'';display:block;width:52px;height:1px;margin:22px auto 0;background:var(--stone);opacity:.8}
-.sauny-page .sp-hero-lead{margin-top:20px;max-width:520px;font-size:20px;line-height:1.5;color:#e1e6e8}
-.sauny-page .sp-hero-intro .sp-button{margin-top:34px}
+.sauny-page .sp-hero-intro h1{font-family:var(--heading);font-weight:400;font-size:clamp(48px,5.4vw,92px);line-height:1.04;letter-spacing:-.025em;color:#f6f2ea;text-shadow:0 2px 24px rgba(2,20,36,.4)}
+.sauny-page .sp-hero-lead{margin-top:20px;max-width:540px;font-size:21px;line-height:1.45;color:rgba(246,242,234,.86)}
+.sauny-page .sp-hero-intro .sp-button{margin-top:32px}
 
-.sauny-page .sp-tiles{position:relative;z-index:2;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;max-width:1100px;margin:-170px auto 0;padding:0 32px}
-.sauny-page .sp-tile{min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:22px 12px;text-align:center;color:#fffaf1;border:1px solid #f3efe74d;border-radius:12px;background:rgba(7,40,65,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 3px 0 #071c30,0 7px 0 -2px #020b16,0 22px 38px #000a1873;transition:transform .4s cubic-bezier(.2,.65,.3,1),border-color .4s,background .4s,box-shadow .4s}
-.sauny-page .sp-tile-symbol svg{width:32px;height:32px;stroke-width:1.15}
-.sauny-page .sp-tile-name{font-family:var(--heading);font-size:20px;line-height:1.25;letter-spacing:-.01em}
-.sauny-page .sp-tile:hover,.sauny-page .sp-tile:focus-visible{border-color:#c4e3fbd9;background:rgba(18,61,94,.7)}
+.sauny-page .sp-tiles{position:relative;z-index:2;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;max-width:1120px;margin:-170px auto 0;padding:0 32px}
+.sauny-page .sp-tile{min-height:172px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:22px 12px;text-align:center;color:#fff;border:1px solid var(--sp-glass-border);border-radius:var(--sp-radius);background:var(--sp-glass);-webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 30px rgba(0,8,20,.3);transition:transform .45s var(--sp-spring),background .3s,box-shadow .3s}
+.sauny-page .sp-tile-symbol{display:grid;place-items:center;width:58px;height:58px;border-radius:15px;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 4px 12px rgba(0,8,20,.25)}
+.sauny-page .sp-tile-symbol svg{width:30px;height:30px;stroke-width:1.3}
+.sauny-page .sp-tile-name{font-family:var(--heading);font-size:19px;line-height:1.25;letter-spacing:-.01em}
+.sauny-page .sp-tile:hover,.sauny-page .sp-tile:focus-visible{background:rgba(28,62,96,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 16px 40px rgba(0,8,20,.4)}
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
- .sauny-page .sp-tile:hover{transform:translateY(-8px);box-shadow:0 4px 0 #0a2540,0 10px 0 -3px #020b16,0 36px 52px #000a1899}
+ .sauny-page .sp-tile:hover{transform:translateY(-6px) scale(1.02)}
 }
 
-/* ---------- Typy sáun ---------- */
-.sauny-page .sp-types{background:#fff;color:var(--text);padding:110px var(--sp-gutter) 40px}
-.sauny-page .sp-types-head{max-width:720px;margin:0 auto 80px;text-align:center}
-.sauny-page .sp-types-head .sp-eyebrow{justify-content:center}
-.sauny-page .sp-types h2,.sauny-page .sp-process h2{font-family:var(--heading);font-weight:400;font-size:clamp(36px,3.4vw,56px);line-height:1.1;letter-spacing:-.015em;color:var(--navy);margin-top:18px}
-.sauny-page .sp-types-head h2:after,.sauny-page .sp-process-head h2:after{content:'';display:block;width:52px;height:1px;margin:22px auto 0;background:var(--stone)}
-.sauny-page .sp-types-head p:last-child{margin-top:22px;font-size:20px;line-height:1.6;color:#29465c}
+/* ---------- Typy sáun: biele karty na svetlosivej ploche ---------- */
+.sauny-page .sp-types{background:var(--sp-gray);color:var(--text);padding:110px var(--sp-gutter) 40px}
+.sauny-page .sp-types-head{max-width:720px;margin:0 auto 64px;text-align:center}
+.sauny-page .sp-types h2,.sauny-page .sp-process h2{font-family:var(--heading);font-weight:400;font-size:clamp(36px,3.6vw,58px);line-height:1.08;letter-spacing:-.025em;color:#0b2540}
+.sauny-page .sp-types-head p{margin-top:18px;font-size:21px;line-height:1.5;color:#55657a}
 
-.sauny-page .sp-type{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(36px,5vw,88px);align-items:center;padding:56px 0;border-top:1px solid #e7e2d8}
-.sauny-page .sp-type:nth-of-type(even){grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.sauny-page .sp-type{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;padding:clamp(18px,1.6vw,24px);margin-bottom:24px;background:#fff;border-radius:var(--sp-radius);box-shadow:var(--sp-shadow)}
+.sauny-page .sp-type:nth-of-type(even){grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}
 .sauny-page .sp-type:nth-of-type(even) .sp-type-photo{order:2}
-.sauny-page .sp-type-photo{border-radius:20px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 18px 40px #07315b1f}
+.sauny-page .sp-type-photo{border-radius:var(--sp-radius-inner);overflow:hidden;aspect-ratio:4/3}
 .sauny-page .sp-type-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.sauny-page .sp-type-copy{max-width:540px}
-.sauny-page .sp-type h3{font-family:var(--heading);font-weight:400;font-size:clamp(30px,2.6vw,44px);line-height:1.1;letter-spacing:-.015em;color:var(--navy);margin:16px 0 0}
-.sauny-page .sp-type h3:after{content:'';display:block;width:52px;height:1px;margin-top:20px;background:var(--stone)}
-.sauny-page .sp-type-copy>p:not(.sp-eyebrow){margin-top:20px;font-size:18px;line-height:1.65;color:#29465c}
-.sauny-page .sp-specs{list-style:none;margin:26px 0 30px;padding:0;display:grid;gap:12px}
-.sauny-page .sp-specs li{position:relative;padding-left:26px;font-size:16px;line-height:1.5;color:var(--text)}
-.sauny-page .sp-specs li:before{content:'';position:absolute;left:0;top:.62em;width:12px;height:1px;background:var(--sp-cta)}
-.sauny-page .sp-links{display:flex;flex-wrap:wrap;gap:16px 32px}
-.sauny-page .sp-type-product{margin-top:24px;padding:56px clamp(28px,4vw,64px);border:0;border-radius:24px;background:var(--cream)}
+.sauny-page .sp-type-copy{max-width:520px;padding:16px clamp(8px,2vw,28px)}
+.sauny-page .sp-type h3{font-family:var(--heading);font-weight:400;font-size:clamp(30px,2.6vw,42px);line-height:1.08;letter-spacing:-.02em;color:#0b2540;margin:0}
+.sauny-page .sp-type-copy>p{margin-top:14px;font-size:18px;line-height:1.6;color:#55657a}
 
-/* ---------- Čísla: tmavá karta s kovovým rámikom ---------- */
-.sauny-page .sp-stats{background:#fff;padding:60px var(--sp-gutter) 110px}
-.sauny-page .sp-stats-card{position:relative;isolation:isolate;max-width:1100px;margin:0 auto;padding:clamp(48px,5vw,72px) clamp(28px,5vw,72px)}
-.sauny-page .sp-stats-card:before{content:'';position:absolute;inset:12px 0 0;z-index:-1;background:var(--sp-card);border-radius:24px;box-shadow:-26px 18px 42px -12px rgba(0,8,20,.4),0 24px 38px -16px rgba(0,8,20,.4)}
-.sauny-page .sp-stats-frame{position:absolute;inset:0 14px 14px -14px;border-radius:12px;pointer-events:none;border:1.5px solid #d4af62}
-@supports ((mask-composite:exclude) or (-webkit-mask-composite:xor)){
- .sauny-page .sp-stats-frame{border:0}
- .sauny-page .sp-stats-frame:before{content:'';position:absolute;inset:0;padding:3px;border-radius:inherit;background:linear-gradient(135deg,#80602b 0%,#c29543 13%,#f5df9d 27%,#b18435 40%,#e8c875 57%,#fff0bc 68%,#a77a2e 83%,#dcb969 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
-}
-.sauny-page .sp-stats-inner{position:relative;text-align:center}
-.sauny-page .sp-stats h2{font-family:var(--heading);font-weight:400;font-size:clamp(26px,2.2vw,36px);line-height:1.2;color:var(--cream);letter-spacing:-.01em}
-.sauny-page .sp-stats-list{display:grid;grid-template-columns:repeat(3,1fr);margin:44px 0 0}
-.sauny-page .sp-stats-list>div{display:flex;flex-direction:column-reverse;align-items:center;gap:8px;padding:0 16px}
-.sauny-page .sp-stats-list>div+div{border-left:1px solid #f3efe72e}
-.sauny-page .sp-stats-list dd{margin:0;font-family:var(--heading);font-size:clamp(56px,6vw,96px);line-height:1;letter-spacing:-.03em;color:#eee8dd}
-.sauny-page .sp-stats-list dt{font-size:16px;letter-spacing:1px;text-transform:uppercase;color:#b9cbd9}
+/* Zoskupený zoznam ako v Nastaveniach systému */
+.sauny-page .sp-specs{list-style:none;margin:24px 0 26px;padding:0 16px;background:var(--sp-gray);border-radius:12px}
+.sauny-page .sp-specs li{display:flex;align-items:center;gap:12px;padding:12px 0;font-size:16px;line-height:1.45;color:var(--text)}
+.sauny-page .sp-specs li+li{border-top:1px solid var(--sp-hairline)}
+.sauny-page .sp-specs li:before{content:'';flex:none;width:18px;height:18px;border-radius:50%;background:var(--sp-cta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/12px no-repeat}
+.sauny-page .sp-links{display:flex;flex-wrap:wrap;gap:12px 28px}
+.sauny-page .sp-type-product{background:linear-gradient(135deg,#fff 0%,#fbf6ee 100%);border:1px solid #efe4d2}
+
+/* ---------- Čísla: jeden panel s tromi hodnotami ---------- */
+.sauny-page .sp-stats{background:var(--sp-gray);padding:40px var(--sp-gutter) 110px}
+.sauny-page .sp-stats-card{max-width:1100px;margin:0 auto;padding:clamp(40px,4.5vw,64px) clamp(24px,4vw,56px);background:#fff;border-radius:var(--sp-radius);box-shadow:var(--sp-shadow);text-align:center}
+.sauny-page .sp-stats h2{font-family:var(--heading);font-weight:400;font-size:clamp(26px,2.2vw,34px);line-height:1.2;letter-spacing:-.015em;color:#0b2540}
+.sauny-page .sp-stats-list{display:grid;grid-template-columns:repeat(3,1fr);margin:40px 0 0}
+.sauny-page .sp-stats-list>div{display:flex;flex-direction:column-reverse;align-items:center;gap:6px;padding:4px 16px}
+.sauny-page .sp-stats-list>div+div{border-left:1px solid var(--sp-hairline)}
+.sauny-page .sp-stats-list dd{margin:0;font-family:var(--heading);font-size:clamp(56px,6vw,92px);line-height:1;letter-spacing:-.035em;color:var(--navy)}
+.sauny-page .sp-stats-list dt{font-size:17px;color:#6e7b8b}
 
 /* ---------- Postup ---------- */
-.sauny-page .sp-process{background:var(--cream);color:var(--text);padding:100px var(--sp-gutter)}
-.sauny-page .sp-process-head{text-align:center;margin-bottom:60px}
-.sauny-page .sp-process-head .sp-eyebrow{justify-content:center}
-.sauny-page .sp-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.sauny-page .sp-steps li{padding:32px 28px 34px;background:#fff;border-radius:12px;border:1px solid #e3ddd1}
-.sauny-page .sp-step-number{display:block;font-family:var(--heading);font-size:40px;line-height:1;color:var(--sp-cta)}
-.sauny-page .sp-steps h3{font-family:var(--heading);font-weight:400;font-size:26px;color:var(--navy);margin:20px 0 0}
-.sauny-page .sp-steps p{margin-top:12px;font-size:16px;line-height:1.55;color:#29465c}
+.sauny-page .sp-process{background:#fff;color:var(--text);padding:110px var(--sp-gutter)}
+.sauny-page .sp-process-head{text-align:center;margin-bottom:56px}
+.sauny-page .sp-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.sauny-page .sp-steps li{padding:30px 26px 32px;background:var(--sp-gray);border-radius:var(--sp-radius);transition:transform .45s var(--sp-spring),box-shadow .3s,background .3s}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ .sauny-page .sp-steps li:hover{transform:translateY(-4px);background:#fff;box-shadow:var(--sp-shadow-hover)}
+}
+.sauny-page .sp-step-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;color:#fff;background:linear-gradient(180deg,#3d8fd0,var(--navy));box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 4px 12px rgba(7,49,91,.25)}
+.sauny-page .sp-step-icon svg{width:24px;height:24px;stroke-width:1.6}
+.sauny-page .sp-steps h3{font-family:var(--heading);font-weight:400;font-size:25px;letter-spacing:-.01em;color:#0b2540;margin:22px 0 0}
+.sauny-page .sp-steps p{margin-top:10px;font-size:16px;line-height:1.55;color:#55657a}
 
 /* ---------- Panoramatická fotografia ---------- */
-.sauny-page .sp-panorama{height:clamp(260px,34vw,560px);overflow:hidden;background:var(--sp-deep)}
-.sauny-page .sp-panorama img{width:100%;height:100%;object-fit:cover;display:block}
+.sauny-page .sp-panorama{background:#fff;padding:0 var(--sp-gutter) 110px}
+.sauny-page .sp-panorama img{width:100%;height:clamp(240px,30vw,500px);object-fit:cover;display:block;border-radius:var(--sp-radius);box-shadow:var(--sp-shadow)}
 
 /* ---------- Responzivita ---------- */
 @media(max-width:1100px){
@@ -112,31 +113,31 @@
  .sauny-page .sp-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:900px){
- .sauny-page{--sp-gutter:6%}
- .sauny-page .sp-type,.sauny-page .sp-type:nth-of-type(even){grid-template-columns:1fr;gap:28px;padding:44px 0}
+ .sauny-page{--sp-gutter:5%}
+ .sauny-page .sp-type,.sauny-page .sp-type:nth-of-type(even){grid-template-columns:1fr;gap:8px}
  .sauny-page .sp-type:nth-of-type(even) .sp-type-photo{order:0}
- .sauny-page .sp-type-copy{max-width:none}
- .sauny-page .sp-type-product{padding:36px 24px}
- .sauny-page .sp-stats-frame{inset:0 8px 8px -8px}
+ .sauny-page .sp-type-copy{max-width:none;padding:16px 8px 12px}
 }
 @media(max-width:760px){
- .sauny-page .sp-hero-photo{bottom:120px;border-radius:0 0 20px 20px}
- .sauny-page .sp-hero-intro{min-height:640px;padding:120px 7% 180px}
+ .sauny-page .sp-hero-photo{bottom:120px;border-radius:0 0 22px 22px}
+ .sauny-page .sp-hero-intro{min-height:620px;padding:120px 7% 180px}
  .sauny-page .sp-hero-intro h1{font-size:clamp(42px,11vw,56px)}
- .sauny-page .sp-hero-intro h1:after{width:42px;margin-top:18px}
  .sauny-page .sp-hero-lead{font-size:18px}
  .sauny-page .sp-tiles{grid-template-columns:repeat(5,minmax(138px,1fr));margin-top:-140px;gap:10px}
- .sauny-page .sp-tile{min-height:140px;padding:18px 10px;gap:10px}
- .sauny-page .sp-tile-symbol svg{width:28px;height:28px}
+ .sauny-page .sp-tile{min-height:146px;padding:18px 10px;gap:12px;border-radius:18px}
+ .sauny-page .sp-tile-symbol{width:50px;height:50px;border-radius:13px}
+ .sauny-page .sp-tile-symbol svg{width:26px;height:26px}
  .sauny-page .sp-tile-name{font-size:17px}
  .sauny-page .sp-types{padding-top:72px}
- .sauny-page .sp-types-head{margin-bottom:40px}
- .sauny-page .sp-types-head p:last-child{font-size:18px}
- .sauny-page .sp-type-copy>p:not(.sp-eyebrow){font-size:17px}
+ .sauny-page .sp-types-head{margin-bottom:36px}
+ .sauny-page .sp-types-head p{font-size:18px}
+ .sauny-page .sp-type{padding:12px;margin-bottom:16px}
+ .sauny-page .sp-type-copy>p{font-size:17px}
  .sauny-page .sp-stats{padding-bottom:72px}
- .sauny-page .sp-stats-list{grid-template-columns:1fr;gap:28px}
- .sauny-page .sp-stats-list>div+div{border-left:0;border-top:1px solid #f3efe72e;padding-top:28px}
- .sauny-page .sp-process{padding:72px 6%}
- .sauny-page .sp-process-head{margin-bottom:36px}
+ .sauny-page .sp-stats-list{grid-template-columns:1fr;gap:24px}
+ .sauny-page .sp-stats-list>div+div{border-left:0;border-top:1px solid var(--sp-hairline);padding-top:24px}
+ .sauny-page .sp-process{padding:72px 5%}
+ .sauny-page .sp-process-head{margin-bottom:32px}
  .sauny-page .sp-steps{grid-template-columns:1fr;gap:12px}
+ .sauny-page .sp-panorama{padding-bottom:72px}
 }
