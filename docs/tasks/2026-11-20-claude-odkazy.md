@@ -13,3 +13,5 @@
 - Ostatné odkazy na wellness-systemy.sk a ironpool.sk (realizácie, IRONWELL, IRONPOOL, „Prečítajte si ďalšie užitočné informácie“) → `#`.
 
 Telefón, e-mail v pätičke a vnútorné kotvy (`#kontakt`, logo, Riešenia na mieru, Produkty) zostávajú.
+
+- Dlaždice Bazény a Sauny sú klikateľné celé (`assets/js/pages/home-links.js`, trieda `is-linked`); klávesnica a odkaz „Viac o…“ fungujú ako predtým.
