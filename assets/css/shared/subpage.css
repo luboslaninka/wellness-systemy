@@ -117,14 +117,14 @@
 .subpage .sp-split{position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;align-items:center;margin:-112px 0 -96px;pointer-events:none}
 .subpage .sp-split>*{pointer-events:auto}
 .subpage .sp-split+.sp-halves{position:relative;z-index:1}
-.subpage .sp-split-light{position:relative;z-index:2;display:flex;align-items:center;gap:clamp(24px,2.6vw,40px);margin-right:-56px;padding:clamp(32px,3vw,44px) clamp(40px,4vw,72px) clamp(32px,3vw,44px) max(32px,calc((100vw - var(--sub-content))/2));background:#fff;border-radius:0 3px 3px 0;box-shadow:0 4px 0 #b8b6b0,0 15px 0 -8px #020a15,0 30px 55px #00091666;transform:translateY(-18px)}
-.subpage .sp-split-light p{font-size:clamp(17px,1.25vw,20px);line-height:1.6;color:#29465c;max-width:520px}
+.subpage .sp-split-light{position:relative;z-index:2;display:flex;align-items:center;gap:clamp(24px,2.6vw,40px);margin-right:-56px;padding:clamp(32px,3vw,44px) clamp(72px,6vw,104px) clamp(32px,3vw,44px) clamp(32px,4.2vw,80px);background:#fff;border-radius:0 3px 3px 0;box-shadow:0 4px 0 #b8b6b0,0 15px 0 -8px #020a15,0 30px 55px #00091666;transform:translateY(-18px)}
+.subpage .sp-split-light p{font-size:clamp(17px,1.25vw,20px);line-height:1.6;color:#29465c}
 .subpage .sp-badge{flex:none;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:124px;height:124px;border-radius:50%;text-align:center}
 .subpage .sp-badge:before{content:'';position:absolute;inset:0;border-radius:50%;padding:3px;background:var(--sub-gold);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
 .subpage .sp-badge strong{font-family:var(--heading);font-weight:400;font-size:52px;line-height:.95;letter-spacing:-.04em;background:var(--sub-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .subpage .sp-badge span{margin-top:5px;font-size:13px;line-height:1.25;color:var(--navy)}
 .subpage .sp-split-dark{position:relative;z-index:1}
-.subpage .sp-split-card{position:relative;isolation:isolate;padding:clamp(30px,2.8vw,40px) max(40px,calc((100vw - var(--sub-content))/2)) clamp(30px,2.8vw,40px) clamp(88px,7vw,112px);color:#f6f2ea}
+.subpage .sp-split-card{position:relative;isolation:isolate;padding:clamp(30px,2.8vw,40px) clamp(32px,4.2vw,80px) clamp(30px,2.8vw,40px) clamp(88px,7vw,120px);color:#f6f2ea}
 .subpage .sp-split-card:before{content:'';position:absolute;inset:12px 0 0;z-index:-1;background:#08233d;border-radius:12px 0 0 12px;box-shadow:-26px 18px 42px -12px rgba(0,8,20,.58),-8px 6px 18px -6px rgba(0,8,20,.38),0 24px 38px -16px rgba(0,8,20,.5)}
 .subpage .sp-split-frame{position:absolute;inset:0 0 14px 40px;border-radius:12px 0 0 12px;pointer-events:none;border:1.5px solid #d4af62}
 @supports ((mask-composite:exclude) or (-webkit-mask-composite:xor)){
