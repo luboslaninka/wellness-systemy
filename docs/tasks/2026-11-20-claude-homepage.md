@@ -13,7 +13,7 @@
 - `assets/images/home/{komplexne-riesenia,ponuka-virivky,ponuka-sauny,nas-tim}.jpg`, `assets/images/home/realizacie/*`, `assets/images/home/klienti/*` – zo vzorového webu
 - `assets/css/shared/subpage.css` – nové spoločné prvky: podnadpis, podpis, hlavička sekcie, delený úvod, polovice ponuky, rad fotografií, logá, široká fotografia
 - šípky v tlačidlách: `src/partials/{shared,sauny,bazeny,home}/*.html`
-- Odstránené: `src/partials/home/{experience,showcase}.html`, `assets/css/sections/home-{experience,showcase}.css`, `assets/images/home/sauna-panorama.jpg`, `assets/images/shared/vyrocie.png`
+- Odstránené: `src/partials/home/showcase.html`, `assets/css/sections/home-showcase.css`, `assets/images/home/sauna-panorama.jpg`, `assets/images/shared/vyrocie.png`
 
 ## Zásahy do spoločných súborov
 
@@ -22,7 +22,7 @@ Doplnky v `shared/subpage.css` sú nové triedy; Sauny a Bazény sa nemenia.
 
 ## Obsah
 
-Podľa spätnej väzby Ľuba: úvod o firme ako na vzore – vrstvené plochy bez vlastného pozadia, ktoré čiastočne prekrývajú úvodné panely aj sekciu ponuky pod nimi (vyvýšená biela plocha s odznakom 26 rokov od ľavého okraja, tmavá karta so zlatým rámikom a citáciou konateľa až po pravý okraj), ponuka víriviek a sáun ako slider cez celú šírku (prelínanie dvoch snímok, tlačidlá, bodky, klávesnica, automatický posun s pauzou pri myši/fokuse, vypnutý pri obmedzenom pohybe – `assets/js/shared/hero-slider.js`), posledné realizované projekty – všetkých šesť fotografií vedľa seba cez celú šírku na sivom pozadí, naši spokojní klienti, náš tím vám pomôže v usporiadaní ako na vzore (fotografia od ľavého okraja, biela karta s textom a tlačidlom prečnieva nad predchádzajúcu sekciu, pod ňou „Navštívte showroom v sídle spoločnosti“ na tmavom pozadí), pätička. Texty doslova zo vzoru.
+Podľa spätnej väzby Ľuba: úvod o firme ako na vzore – vrstvené plochy bez vlastného pozadia, ktoré čiastočne prekrývajú úvodné panely aj sekciu ponuky pod nimi (vyvýšená biela plocha s odznakom 26 rokov od ľavého okraja, tmavá karta so zlatým rámikom a citáciou konateľa až po pravý okraj), ponuka víriviek a sáun ako slider cez celú šírku zasunutý pod sekciu Skúsenosti (prvá snímka vírivky, pri saunách fotografia `sauny/hero.jpg`) (prelínanie dvoch snímok, tlačidlá, bodky, klávesnica, automatický posun s pauzou pri myši/fokuse, vypnutý pri obmedzenom pohybe – `assets/js/shared/hero-slider.js`), posledné realizované projekty – všetkých šesť fotografií vedľa seba cez celú šírku na sivom pozadí, naši spokojní klienti, náš tím vám pomôže v usporiadaní ako na vzore (fotografia od ľavého okraja, biela karta posunutá o 30 px nižšie, s textom a tlačidlom prečnieva nad predchádzajúcu sekciu, pod ňou „Navštívte showroom v sídle spoločnosti“ na tmavom pozadí), pätička. Texty doslova zo vzoru.
 
 Na celom webe sú odstránené šípky z CTA tlačidiel (aj „Kontaktujte nás“ v hlavičke a „Odoslať“ v pätičke).
 
