@@ -1,21 +1,14 @@
-/* Vzorová podstránka Sauny – štýl blízky macOS.
+/* Podstránka Sauny – obsah a rozloženie podľa https://wellness-systemy.sk/sauny/, prekreslené v štýle homepage.
    Načítava sa po shared/base.css a pages/home.css (hlavička, premenné, schválené základy).
    Všetky pravidlá sú obmedzené na .sauny-page, aby neovplyvnili homepage ani iné stránky. */
 
 .sauny-page{
  --sp-deep:#020e1c;
- --sp-gray:#f5f5f7;
- --sp-hairline:rgba(7,49,91,.1);
+ --sp-dark:#061b31;
+ --sp-light:#f5f5f7;
  --sp-cta:#da9f55;
- --sp-cta-top:#e4ae6a;
- --sp-radius:20px;
- --sp-radius-inner:14px;
- --sp-radius-control:10px;
- --sp-shadow:0 1px 2px rgba(7,30,56,.05),0 8px 24px rgba(7,30,56,.07),0 24px 60px rgba(7,30,56,.07);
- --sp-shadow-hover:0 2px 4px rgba(7,30,56,.06),0 14px 34px rgba(7,30,56,.1),0 34px 80px rgba(7,30,56,.1);
- --sp-glass:rgba(16,38,62,.42);
- --sp-glass-border:rgba(255,255,255,.18);
- --sp-spring:cubic-bezier(.25,1.25,.5,1);
+ --sp-cta-border:#cb9c47;
+ --sp-gold:linear-gradient(135deg,#80602b 0%,#c29543 13%,#f5df9d 27%,#b18435 40%,#e8c875 57%,#fff0bc 68%,#a77a2e 83%,#dcb969 100%);
  --sp-content:1240px;
  --sp-gutter:max(32px,calc((100% - var(--sp-content))/2));
  background:var(--sp-deep);
@@ -25,138 +18,108 @@
 @media(prefers-reduced-motion:no-preference){html:has(.sauny-page){scroll-behavior:smooth}}
 
 /* ---------- Tlačidlá: rovnaké ako „Kontaktujte nás“ v menu homepage ---------- */
-.sauny-page .sp-button{display:inline-flex;align-items:center;gap:23px;padding:13px 20px;border:1px solid #cb9c47;border-radius:30px;background:var(--sp-cta);color:#fff;font-size:16px;font-weight:600;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
+.sauny-page .sp-button{display:inline-flex;align-items:center;gap:23px;padding:13px 20px;border:1px solid var(--sp-cta-border);border-radius:30px;background:var(--sp-cta);color:#fff;font-size:16px;font-weight:600;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
 .sauny-page .sp-button:hover{background:var(--cream);border-color:var(--cream);color:var(--navy)}
 .sauny-page .sp-button svg{width:20px;height:20px}
 .sauny-page .sp-button-secondary{background:transparent;border-color:rgba(7,49,91,.3);color:var(--navy)}
 .sauny-page .sp-button-secondary:hover{background:var(--navy);border-color:var(--navy);color:var(--cream)}
-.sauny-page .sp-type:nth-of-type(even) .sp-button-secondary{border-color:#f3efe780;color:var(--cream)}
-.sauny-page .sp-type:nth-of-type(even) .sp-button-secondary:hover{background:var(--cream);border-color:var(--cream);color:var(--navy)}
+.sauny-page .sp-band-dark .sp-button-secondary{border-color:#f3efe780;color:var(--cream)}
+.sauny-page .sp-band-dark .sp-button-secondary:hover{background:var(--cream);border-color:var(--cream);color:var(--navy)}
 
-/* ---------- Hero: pevná fotografia a sklenené dlaždice ---------- */
-.sauny-page .sp-hero{position:relative;isolation:isolate;padding-bottom:72px;background-color:var(--sp-deep);background-image:url("../../images/shared/wave-texture.svg");background-size:cover;background-position:center bottom}
-.sauny-page .sp-hero-photo{position:absolute;inset:0 0 150px;z-index:-1;overflow:hidden;border-radius:0 0 28px 28px;box-shadow:0 30px 60px rgba(0,8,20,.45)}
+/* ---------- Header sekcia: nízka ako na vzorovej stránke ---------- */
+.sauny-page .sp-hero{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(420px,46vw,560px);padding:150px var(--sp-gutter) 72px;color:var(--cream);overflow:hidden}
+.sauny-page .sp-hero-photo{position:absolute;inset:0;z-index:-1}
 .sauny-page .sp-hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.sauny-page .sp-hero-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,24,42,.55) 0%,rgba(3,24,42,.22) 30%,rgba(3,24,42,.42) 62%,rgba(3,24,42,.82) 100%)}
-.sauny-page .sp-hero-intro{min-height:clamp(560px,calc(100svh - 120px),820px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:150px 24px 210px;color:var(--cream)}
-.sauny-page .sp-hero-intro h1{font-family:var(--heading);font-weight:400;font-size:clamp(48px,5.4vw,92px);line-height:1.04;letter-spacing:-.025em;color:#f6f2ea;text-shadow:0 2px 24px rgba(2,20,36,.4)}
-.sauny-page .sp-hero-lead{margin-top:20px;max-width:540px;font-size:21px;line-height:1.45;color:rgba(246,242,234,.86)}
-.sauny-page .sp-hero-intro .sp-button{margin-top:32px}
+.sauny-page .sp-hero-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,24,42,.62) 0%,rgba(3,24,42,.2) 38%,rgba(3,24,42,.35) 62%,rgba(2,14,28,.92) 100%),linear-gradient(90deg,rgba(3,24,42,.55) 0%,transparent 60%)}
+.sauny-page .sp-hero-intro{max-width:760px}
+.sauny-page .sp-hero-intro h1{font-family:var(--heading);font-weight:400;font-size:clamp(48px,5.4vw,88px);line-height:1.04;letter-spacing:-.025em;color:#f6f2ea;text-shadow:0 2px 24px rgba(2,20,36,.35)}
+.sauny-page .sp-hero-intro h1:after{content:'';display:block;width:52px;height:1px;margin-top:22px;background:var(--stone);opacity:.8}
+.sauny-page .sp-hero-lead{margin-top:18px;font-size:22px;line-height:1.4;color:rgba(246,242,234,.88)}
 
-.sauny-page .sp-tiles{position:relative;z-index:2;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;max-width:1120px;margin:-170px auto 0;padding:0 32px}
-.sauny-page .sp-tile{min-height:172px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:22px 12px;text-align:center;color:#fff;border:1px solid var(--sp-glass-border);border-radius:var(--sp-radius);background:var(--sp-glass);-webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 30px rgba(0,8,20,.3);transition:transform .45s var(--sp-spring),background .3s,box-shadow .3s}
-.sauny-page .sp-tile-symbol{display:grid;place-items:center;width:58px;height:58px;border-radius:15px;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 4px 12px rgba(0,8,20,.25)}
-.sauny-page .sp-tile-symbol svg{width:30px;height:30px;stroke-width:1.3}
-.sauny-page .sp-tile-name{font-family:var(--heading);font-size:19px;line-height:1.25;letter-spacing:-.01em}
-.sauny-page .sp-tile:hover,.sauny-page .sp-tile:focus-visible{background:rgba(28,62,96,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 16px 40px rgba(0,8,20,.4)}
-@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
- .sauny-page .sp-tile:hover{transform:translateY(-6px) scale(1.02)}
+/* ---------- Úvodný tmavý pás ---------- */
+.sauny-page .sp-intro{padding:84px var(--sp-gutter) 96px;text-align:center;color:var(--cream);background-color:var(--sp-deep);background-image:url("../../images/shared/wave-texture.svg");background-size:cover;background-position:center}
+.sauny-page .sp-intro h2{font-family:var(--heading);font-weight:400;font-size:clamp(38px,3.8vw,62px);line-height:1.06;letter-spacing:-.025em;color:#f6f2ea}
+.sauny-page .sp-intro h2:after{content:'';display:block;width:52px;height:1px;margin:22px auto 0;background:var(--stone);opacity:.8}
+.sauny-page .sp-intro-lead{margin-top:22px;font-size:clamp(20px,1.6vw,26px);line-height:1.4;color:#f6f2ea}
+.sauny-page .sp-intro p:last-child{margin-top:14px;font-size:18px;line-height:1.6;color:rgba(246,242,234,.72)}
+
+/* ---------- Pásy typov sáun: svetlý / tmavý na striedačku ---------- */
+.sauny-page .sp-band{padding:clamp(80px,8vw,128px) var(--sp-gutter)}
+.sauny-page .sp-band-light{background:#fff;color:var(--text)}
+.sauny-page .sp-band-dark{background:radial-gradient(120% 120% at 15% 0%,#0f3152 0%,var(--sp-dark) 55%,var(--sp-deep) 100%);color:var(--cream)}
+.sauny-page .sp-band-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,120px);align-items:center}
+.sauny-page .sp-media-right .sp-media{order:2}
+
+/* Fotografia s posunutým kovovým rámikom – rovnaký rámik ako v sekcii Skúsenosti na homepage */
+.sauny-page .sp-media{position:relative;isolation:isolate;margin:0 28px 28px 0}
+.sauny-page .sp-media-left .sp-media{margin:0 0 28px 28px}
+.sauny-page .sp-media img{position:relative;display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:12px;box-shadow:0 24px 50px rgba(2,14,28,.28)}
+.sauny-page .sp-frame{position:absolute;inset:28px -28px -28px 28px;z-index:-1;border-radius:12px;pointer-events:none;border:1.5px solid #d4af62}
+.sauny-page .sp-media-left .sp-frame{inset:28px 28px -28px -28px}
+@supports ((mask-composite:exclude) or (-webkit-mask-composite:xor)){
+ .sauny-page .sp-frame{border:0}
+ .sauny-page .sp-frame:before{content:'';position:absolute;inset:0;padding:3px;border-radius:inherit;background:var(--sp-gold);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
 }
 
-/* ---------- Typy sáun: fotka sa drží vľavo, kapitoly vpravo ---------- */
-.sauny-page .sp-types{background:var(--sp-gray);color:var(--text);padding-top:110px}
-.sauny-page .sp-types-head{max-width:720px;margin:0 auto;padding:0 24px 72px;text-align:center}
-.sauny-page .sp-types h2,.sauny-page .sp-process h2{font-family:var(--heading);font-weight:400;font-size:clamp(36px,3.6vw,58px);line-height:1.08;letter-spacing:-.025em;color:#0b2540}
-.sauny-page .sp-types-head p{margin-top:18px;font-size:21px;line-height:1.5;color:#55657a}
+.sauny-page .sp-copy{max-width:580px}
+.sauny-page .sp-media-left .sp-copy{justify-self:end}
+.sauny-page .sp-copy h2{font-family:var(--heading);font-weight:400;font-size:clamp(34px,3vw,50px);line-height:1.08;letter-spacing:-.022em;color:#0b2540}
+.sauny-page .sp-copy h2:after{content:'';display:block;width:52px;height:1px;margin-top:22px;background:var(--stone)}
+.sauny-page .sp-copy p{margin-top:20px;font-size:17px;line-height:1.7;color:#3d5266}
+.sauny-page .sp-copy strong{font-weight:600;color:var(--navy)}
+.sauny-page .sp-actions{margin-top:28px}
+.sauny-page .sp-actions+p{margin-top:36px}
+.sauny-page .sp-more{margin-top:24px}
+.sauny-page .sp-more a{font-weight:600;color:var(--navy);border-bottom:1px solid var(--sp-cta);padding-bottom:3px;transition:color .2s}
+.sauny-page .sp-more a:hover{color:var(--sp-cta)}
 
-.sauny-page .sp-scrolly{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:start}
-.sauny-page .sp-stage{position:sticky;top:0;height:100svh;background:var(--sp-deep)}
-.sauny-page .sp-stage-frame{position:relative;height:100%;overflow:hidden}
-.sauny-page .sp-stage-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .9s ease,transform 1.6s cubic-bezier(.2,.65,.3,1)}
-.sauny-page .sp-stage-photo.is-active{opacity:1;transform:scale(1)}
-.sauny-page .sp-stage-frame:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(2,14,28,.6) 100%)}
-.sauny-page .sp-stage-caption{position:absolute;left:clamp(24px,3vw,48px);right:clamp(24px,3vw,48px);bottom:clamp(24px,3vw,44px);z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 20px;color:#fff;border-radius:16px;background:rgba(16,38,62,.38);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
-.sauny-page .sp-stage-name{font-family:var(--heading);font-size:20px;letter-spacing:-.01em}
-.sauny-page .sp-stage-dots{display:flex;gap:10px}
-.sauny-page .sp-stage-dot{display:block;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .3s,transform .3s}
-.sauny-page .sp-stage-dot span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.sauny-page .sp-stage-dot.is-active{background:#fff;transform:scale(1.35)}
+.sauny-page .sp-band-dark .sp-copy h2{color:#f6f2ea}
+.sauny-page .sp-band-dark .sp-copy h2:after{opacity:.7}
+.sauny-page .sp-band-dark .sp-copy p{color:rgba(246,242,234,.76)}
+.sauny-page .sp-band-dark .sp-copy strong{color:#f6f2ea}
+.sauny-page .sp-band-dark .sp-more a{color:#f6f2ea}
+.sauny-page .sp-band-dark .sp-more a:hover{color:var(--sp-cta)}
+.sauny-page .sp-band-dark .sp-media img{box-shadow:0 24px 50px rgba(0,6,14,.5)}
 
-.sauny-page .sp-chapters{display:flex;flex-direction:column}
-.sauny-page .sp-type{min-height:100svh;display:flex;align-items:center;padding:96px clamp(32px,6vw,110px);background:#fff;transition:background .4s}
-.sauny-page .sp-type-photo{display:none}
-.sauny-page .sp-type-copy{max-width:540px}
-.sauny-page .sp-type h3{font-family:var(--heading);font-weight:400;font-size:clamp(36px,3.4vw,56px);line-height:1.05;letter-spacing:-.025em;color:#0b2540;margin:0}
-.sauny-page .sp-type-copy>p{margin-top:18px;font-size:19px;line-height:1.6;color:#55657a}
+/* ---------- Čísla hovoria za nás ---------- */
+.sauny-page .sp-stats{padding:clamp(80px,8vw,120px) var(--sp-gutter);text-align:center;color:var(--cream);background-color:var(--sp-deep);background-image:url("../../images/shared/wave-texture.svg");background-size:cover;background-position:center}
+.sauny-page .sp-stats h2{font-family:var(--heading);font-weight:400;font-size:clamp(34px,3vw,50px);line-height:1.1;letter-spacing:-.022em;color:#f6f2ea}
+.sauny-page .sp-stats h2:after{content:'';display:block;width:52px;height:1px;margin:22px auto 0;background:var(--stone);opacity:.8}
+.sauny-page .sp-stats-list{display:grid;grid-template-columns:repeat(3,1fr);max-width:1000px;margin:56px auto 0}
+.sauny-page .sp-stats-list>div{display:flex;flex-direction:column-reverse;align-items:center;gap:10px;padding:8px 16px}
+.sauny-page .sp-stats-list>div+div{border-left:1px solid rgba(243,239,231,.18)}
+.sauny-page .sp-stats-list dd{margin:0;font-family:var(--heading);font-size:clamp(60px,6.4vw,104px);line-height:1;letter-spacing:-.035em;white-space:nowrap;background:var(--sp-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sauny-page .sp-stats-list dt{font-size:17px;color:rgba(246,242,234,.72)}
 
-/* Zoskupený zoznam ako v Nastaveniach systému */
-.sauny-page .sp-specs{list-style:none;margin:30px 0 34px;padding:0 18px;background:var(--sp-gray);border-radius:14px}
-.sauny-page .sp-specs li{display:flex;align-items:center;gap:12px;padding:13px 0;font-size:16px;line-height:1.45;color:var(--text)}
-.sauny-page .sp-specs li+li{border-top:1px solid var(--sp-hairline)}
-.sauny-page .sp-specs li:before{content:'';flex:none;width:18px;height:18px;border-radius:50%;background:var(--sp-cta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/12px no-repeat}
-.sauny-page .sp-links{display:flex;flex-wrap:wrap;gap:12px}
-
-/* Striedanie: svetlá, tmavá, svetlá, tmavá, teplá svetlá */
-.sauny-page .sp-type:nth-of-type(even){background:linear-gradient(160deg,#0f3152 0%,#061a2f 100%);color:#f6f2ea}
-.sauny-page .sp-type:nth-of-type(even) h3{color:#f6f2ea}
-.sauny-page .sp-type:nth-of-type(even) .sp-type-copy>p{color:rgba(246,242,234,.74)}
-.sauny-page .sp-type:nth-of-type(even) .sp-specs{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
-.sauny-page .sp-type:nth-of-type(even) .sp-specs li{color:rgba(246,242,234,.9)}
-.sauny-page .sp-type:nth-of-type(even) .sp-specs li+li{border-top-color:rgba(255,255,255,.1)}
-.sauny-page .sp-type-product{background:linear-gradient(160deg,#fffdf9 0%,#f6ecdd 100%)}
-
-/* ---------- Čísla: tmavá sekcia so skleneným panelom ---------- */
-.sauny-page .sp-stats{padding:110px var(--sp-gutter);background-color:var(--sp-deep);background-image:url("../../images/shared/wave-texture.svg");background-size:cover;background-position:center}
-.sauny-page .sp-stats-card{max-width:1100px;margin:0 auto;padding:clamp(40px,4.5vw,64px) clamp(24px,4vw,56px);background:var(--sp-glass);border:1px solid var(--sp-glass-border);-webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);border-radius:var(--sp-radius);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 20px 50px rgba(0,8,20,.45);text-align:center}
-.sauny-page .sp-stats h2{font-family:var(--heading);font-weight:400;font-size:clamp(26px,2.2vw,34px);line-height:1.2;letter-spacing:-.015em;color:#f6f2ea}
-.sauny-page .sp-stats-list{display:grid;grid-template-columns:repeat(3,1fr);margin:40px 0 0}
-.sauny-page .sp-stats-list>div{display:flex;flex-direction:column-reverse;align-items:center;gap:6px;padding:4px 16px}
-.sauny-page .sp-stats-list>div+div{border-left:1px solid rgba(255,255,255,.14)}
-.sauny-page .sp-stats-list dd{margin:0;font-family:var(--heading);font-size:clamp(56px,6vw,92px);line-height:1;letter-spacing:-.035em;color:#f6f2ea}
-.sauny-page .sp-stats-list dt{font-size:17px;color:rgba(246,242,234,.65)}
-
-/* ---------- Postup ---------- */
-.sauny-page .sp-process{background:#fff;color:var(--text);padding:110px var(--sp-gutter)}
-.sauny-page .sp-process-head{text-align:center;margin-bottom:56px}
-.sauny-page .sp-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.sauny-page .sp-steps li{padding:30px 26px 32px;background:var(--sp-gray);border-radius:var(--sp-radius);transition:transform .45s var(--sp-spring),box-shadow .3s,background .3s}
-@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
- .sauny-page .sp-steps li:hover{transform:translateY(-4px);background:#fff;box-shadow:var(--sp-shadow-hover)}
-}
-.sauny-page .sp-step-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;color:#fff;background:linear-gradient(180deg,#3d8fd0,var(--navy));box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 4px 12px rgba(7,49,91,.25)}
-.sauny-page .sp-step-icon svg{width:24px;height:24px;stroke-width:1.6}
-.sauny-page .sp-steps h3{font-family:var(--heading);font-weight:400;font-size:25px;letter-spacing:-.01em;color:#0b2540;margin:22px 0 0}
-.sauny-page .sp-steps p{margin-top:10px;font-size:16px;line-height:1.55;color:#55657a}
-
-/* ---------- Panoramatická fotografia ---------- */
-.sauny-page .sp-panorama{background:#fff;padding:0 var(--sp-gutter) 110px}
-.sauny-page .sp-panorama img{width:100%;height:clamp(240px,30vw,500px);object-fit:cover;display:block;border-radius:var(--sp-radius);box-shadow:var(--sp-shadow)}
+/* ---------- Realizované projekty ---------- */
+.sauny-page .sp-projects{position:relative;isolation:isolate;min-height:clamp(340px,34vw,480px);display:flex;align-items:center;justify-content:center;padding:80px var(--sp-gutter);text-align:center;color:var(--cream);overflow:hidden}
+.sauny-page .sp-projects-photo{position:absolute;inset:0;z-index:-1}
+.sauny-page .sp-projects-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.sauny-page .sp-projects-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,14,28,.55),rgba(2,14,28,.45) 50%,rgba(2,14,28,.8))}
+.sauny-page .sp-projects h2{font-family:var(--heading);font-weight:400;font-size:clamp(38px,3.8vw,62px);line-height:1.06;letter-spacing:-.025em;color:#f6f2ea;text-shadow:0 2px 24px rgba(2,20,36,.4)}
+.sauny-page .sp-projects h2:after{content:'';display:block;width:52px;height:1px;margin:22px auto 30px;background:var(--stone);opacity:.8}
 
 /* ---------- Responzivita ---------- */
-@media(max-width:1100px){
- .sauny-page .sp-tiles{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 24px 30px;margin-bottom:-24px;scrollbar-width:none}
- .sauny-page .sp-tiles::-webkit-scrollbar{display:none}
- .sauny-page .sp-tile{scroll-snap-align:start}
- .sauny-page .sp-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
 @media(max-width:900px){
- .sauny-page{--sp-gutter:5%}
- .sauny-page .sp-scrolly{display:block}
- .sauny-page .sp-stage{display:none}
- .sauny-page .sp-type{min-height:0;display:block;padding:0 0 64px}
- .sauny-page .sp-type-photo{display:block;aspect-ratio:16/10;overflow:hidden}
- .sauny-page .sp-type-photo img{width:100%;height:100%;object-fit:cover;display:block}
- .sauny-page .sp-type-copy{max-width:none;padding:36px 5% 0}
+ .sauny-page{--sp-gutter:6%}
+ .sauny-page .sp-band-inner{grid-template-columns:1fr;gap:56px}
+ .sauny-page .sp-media-right .sp-media{order:0}
+ .sauny-page .sp-media,.sauny-page .sp-media-left .sp-media{margin:0 18px 18px 0}
+ .sauny-page .sp-frame,.sauny-page .sp-media-left .sp-frame{inset:18px -18px -18px 18px}
+ .sauny-page .sp-copy{max-width:none}
+ .sauny-page .sp-media-left .sp-copy{justify-self:stretch}
 }
 @media(max-width:760px){
- .sauny-page .sp-hero-photo{bottom:120px;border-radius:0 0 22px 22px}
- .sauny-page .sp-hero-intro{min-height:620px;padding:120px 7% 180px}
+ .sauny-page .sp-hero{min-height:440px;padding:130px 7% 52px}
  .sauny-page .sp-hero-intro h1{font-size:clamp(42px,11vw,56px)}
- .sauny-page .sp-hero-lead{font-size:18px}
- .sauny-page .sp-tiles{grid-template-columns:repeat(5,minmax(138px,1fr));margin-top:-140px;gap:10px}
- .sauny-page .sp-tile{min-height:146px;padding:18px 10px;gap:12px;border-radius:18px}
- .sauny-page .sp-tile-symbol{width:50px;height:50px;border-radius:13px}
- .sauny-page .sp-tile-symbol svg{width:26px;height:26px}
- .sauny-page .sp-tile-name{font-size:17px}
- .sauny-page .sp-types{padding-top:72px}
- .sauny-page .sp-types-head{padding-bottom:44px}
- .sauny-page .sp-types-head p{font-size:18px}
- .sauny-page .sp-type-copy>p{font-size:17px}
- .sauny-page .sp-stats{padding:72px 5%}
- .sauny-page .sp-stats-list{grid-template-columns:1fr;gap:24px}
- .sauny-page .sp-stats-list>div+div{border-left:0;border-top:1px solid rgba(255,255,255,.14);padding-top:24px}
- .sauny-page .sp-process{padding:72px 5%}
- .sauny-page .sp-process-head{margin-bottom:32px}
- .sauny-page .sp-steps{grid-template-columns:1fr;gap:12px}
- .sauny-page .sp-panorama{padding-bottom:72px}
+ .sauny-page .sp-hero-intro h1:after{width:42px;margin-top:18px}
+ .sauny-page .sp-hero-lead{font-size:19px}
+ .sauny-page .sp-intro{padding:64px 7% 72px}
+ .sauny-page .sp-intro p:last-child{font-size:17px}
+ .sauny-page .sp-band{padding:64px 6% 72px}
+ .sauny-page .sp-copy p{font-size:16px}
+ .sauny-page .sp-frame,.sauny-page .sp-media-left .sp-frame{border-radius:10px}
+ .sauny-page .sp-stats-list{grid-template-columns:1fr;gap:28px;margin-top:40px}
+ .sauny-page .sp-stats-list>div+div{border-left:0;border-top:1px solid rgba(243,239,231,.18);padding-top:28px}
+ .sauny-page .sp-button{white-space:normal}
 }
