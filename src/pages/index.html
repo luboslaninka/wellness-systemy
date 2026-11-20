@@ -13,17 +13,24 @@
 <link rel="stylesheet" href="{{ base }}assets/css/pages/home.css">
 <link rel="stylesheet" href="{{ base }}assets/css/sections/home-hero.css">
 <link rel="stylesheet" href="{{ base }}assets/css/sections/home-experience.css">
-<link rel="stylesheet" href="{{ base }}assets/css/sections/home-showcase.css">
+<link rel="stylesheet" href="{{ base }}assets/css/shared/subpage.css">
+<link rel="stylesheet" href="{{ base }}assets/css/shared/footer.css">
 </head>
-<body>
+<body class="subpage home-page">
 <a class="skip" href="#hlavny-obsah">Preskočiť na obsah</a>
 {{ include: shared/header.html }}
 <main id="hlavny-obsah">
  {{ include: home/hero.html }}
 {{ include: home/experience.html }}
-{{ include: home/showcase.html }}
+{{ include: home/ponuka.html }}
+{{ include: home/realizacie.html }}
+{{ include: home/klienti.html }}
+{{ include: home/tim.html }}
 </main>
+{{ include: shared/footer.html }}
 <script src="{{ base }}assets/js/shared/navigation.js" defer></script>
 <script src="{{ base }}assets/js/pages/home.js" defer></script>
+<script src="{{ base }}assets/js/shared/footer-form.js" defer></script>
+<script src="{{ base }}assets/js/shared/hero-slider.js" defer></script>
 </body>
 </html>
