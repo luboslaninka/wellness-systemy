@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WELLNESS SYSTEMY — Váš priestor pre oddych</title>
+<meta name="description" content="Wellness na mieru aj produktové riešenia. Bazény, sauny, wellness, IronWell, IronPool a vírivky.">
+<meta name="theme-color" content="#07315b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ base }}assets/css/shared/base.css">
+<link rel="stylesheet" href="{{ base }}assets/css/pages/home.css">
+<link rel="stylesheet" href="{{ base }}assets/css/sections/home-hero.css">
+<link rel="stylesheet" href="{{ base }}assets/css/sections/home-experience.css">
+<link rel="stylesheet" href="{{ base }}assets/css/sections/home-showcase.css">
+</head>
+<body>
+<a class="skip" href="#hlavny-obsah">Preskočiť na obsah</a>
+{{ include: shared/header.html }}
+<main id="hlavny-obsah">
+ {{ include: home/hero.html }}
+{{ include: home/experience.html }}
+{{ include: home/showcase.html }}
+</main>
+<script src="{{ base }}assets/js/shared/navigation.js" defer></script>
+<script src="{{ base }}assets/js/pages/home.js" defer></script>
+</body>
+</html>
