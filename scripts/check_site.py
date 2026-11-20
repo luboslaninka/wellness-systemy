@@ -18,8 +18,10 @@ def local_target(page, value):
         errors.append(str(page.relative_to(SITE)) + ': root-relative URL breaks project hosting: ' + value)
         return None
     target = (page.parent / unquote(url.path)).resolve()
-    if SITE not in target.parents:
+    if target != SITE and SITE not in target.parents:
         errors.append('Reference outside output: ' + value)
+    elif target.is_dir() and not (target / 'index.html').exists():
+        errors.append(str(page.relative_to(SITE)) + ': missing index.html for ' + value)
     elif not target.exists():
         errors.append(str(page.relative_to(SITE)) + ': missing ' + value)
     return target
