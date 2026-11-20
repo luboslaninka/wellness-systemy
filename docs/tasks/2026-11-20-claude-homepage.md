@@ -22,7 +22,7 @@ Doplnky v `shared/subpage.css` sú nové triedy; Sauny a Bazény sa nemenia.
 
 ## Obsah
 
-Podľa spätnej väzby Ľuba: úvod o firme ako na vzore – nízka sekcia cez celú šírku s vrstvenými plochami (vyvýšená biela plocha s odznakom 26 rokov a prvým odsekom nad tmavou kartou so zlatým rámikom, textom a podpisom konateľa), ponuka víriviek a sáun ako dve polovice cez celú šírku, posledné realizované projekty – všetkých šesť fotografií vedľa seba cez celú šírku na bielom pozadí, naši spokojní klienti, náš tím vám pomôže s výrazne väčšou fotografiou a showroom, pätička. Texty doslova zo vzoru.
+Podľa spätnej väzby Ľuba: úvod o firme ako na vzore – vrstvené plochy bez vlastného pozadia, ktoré čiastočne prekrývajú úvodné panely aj sekciu ponuky pod nimi (vyvýšená biela plocha s odznakom 26 rokov od ľavého okraja, tmavá karta so zlatým rámikom a citáciou konateľa až po pravý okraj), ponuka víriviek a sáun ako dve polovice cez celú šírku, posledné realizované projekty – všetkých šesť fotografií vedľa seba cez celú šírku na sivom pozadí, naši spokojní klienti, náš tím vám pomôže s výrazne väčšou fotografiou a showroom, pätička. Texty doslova zo vzoru.
 
 Na celom webe sú odstránené šípky z CTA tlačidiel (aj „Kontaktujte nás“ v hlavičke a „Odoslať“ v pätičke).
 
