@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sauny na mieru — WELLNESS SYSTEMY</title>
+<meta name="description" content="Fínske, parné, infra a luxusné sauny na mieru aj saunový modul IronWell. Od návrhu až po montáž a servis.">
+<meta name="theme-color" content="#07315b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ base }}assets/css/shared/base.css">
+<link rel="stylesheet" href="{{ base }}assets/css/pages/home.css">
+<link rel="stylesheet" href="{{ base }}assets/css/pages/sauny.css">
+</head>
+<body class="sauny-page">
+<a class="skip" href="#hlavny-obsah">Preskočiť na obsah</a>
+{{ include: shared/header.html }}
+<main id="hlavny-obsah">
+{{ include: sauny/hero.html }}
+{{ include: sauny/typy.html }}
+{{ include: sauny/cisla.html }}
+{{ include: sauny/postup.html }}
+{{ include: sauny/panorama.html }}
+{{ include: sauny/kontakt.html }}
+</main>
+<script src="{{ base }}assets/js/shared/navigation.js" defer></script>
+</body>
+</html>
