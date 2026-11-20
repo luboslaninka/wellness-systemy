@@ -1,4 +1,4 @@
-// Čísla hovoria za nás: hodnoty sa narátajú od nuly, keď sa sekcia objaví na obrazovke.
+// Čísla hovoria za nás (spoločný vzor podstránok): hodnoty sa narátajú od nuly, keď sa sekcia objaví na obrazovke.
 (() => {
 const counters=[...document.querySelectorAll('.sp-count[data-to]')];
 if(!counters.length||!('IntersectionObserver' in window))return;
