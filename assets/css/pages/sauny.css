@@ -50,6 +50,12 @@
 .sauny-page .sp-band-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,120px);align-items:center}
 .sauny-page .sp-media-right .sp-media{order:2}
 
+/* Jemný vzor: bodková vlna odvodená z loga, za fotkou a smerom k okraju obrazovky */
+.sauny-page .sp-band{position:relative;isolation:isolate;overflow:hidden}
+.sauny-page .sp-band:before{content:'';position:absolute;z-index:-1;pointer-events:none;width:min(1100px,78vw);aspect-ratio:1100/520;bottom:-6%;right:-14%;background:var(--navy);opacity:.09;-webkit-mask:url("../../images/shared/dot-wave.svg") center/contain no-repeat;mask:url("../../images/shared/dot-wave.svg") center/contain no-repeat}
+.sauny-page .sp-band:has(.sp-media-left):before{right:auto;left:-14%;transform:scaleX(-1)}
+.sauny-page .sp-band-dark:before{background:#d4af62;opacity:.17}
+
 /* Fotografia s posunutým kovovým rámikom – rovnaký rámik ako v sekcii Skúsenosti na homepage */
 .sauny-page .sp-media{position:relative;isolation:isolate;margin:0 28px 28px 0}
 .sauny-page .sp-media-left .sp-media{margin:0 0 28px 28px}
@@ -118,6 +124,8 @@
  .sauny-page .sp-intro p:last-child{font-size:17px}
  .sauny-page .sp-band{padding:64px 6% 72px}
  .sauny-page .sp-copy p{font-size:16px}
+ .sauny-page .sp-band:before{width:150vw;bottom:-2%;right:-60%}
+ .sauny-page .sp-band:has(.sp-media-left):before{left:-60%}
  .sauny-page .sp-frame,.sauny-page .sp-media-left .sp-frame{border-radius:10px}
  .sauny-page .sp-stats-list{grid-template-columns:1fr;gap:28px;margin-top:40px}
  .sauny-page .sp-stats-list>div+div{border-left:0;border-top:1px solid rgba(243,239,231,.18);padding-top:28px}
