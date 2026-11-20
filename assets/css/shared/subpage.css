@@ -117,7 +117,7 @@
 .subpage .sp-split{position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr;align-items:center;margin:-112px 0 -96px;pointer-events:none}
 .subpage .sp-split>*{pointer-events:auto}
 .subpage .sp-split+.sp-halves{position:relative;z-index:1}
-.subpage .sp-split-light{position:relative;z-index:2;display:flex;align-items:center;gap:clamp(24px,2.6vw,40px);margin-right:-56px;padding:clamp(32px,3vw,44px) clamp(72px,6vw,104px) clamp(32px,3vw,44px) clamp(32px,4.2vw,80px);background:#fff;border-radius:0 3px 3px 0;box-shadow:0 4px 0 #b8b6b0,0 15px 0 -8px #020a15,0 30px 55px #00091666;transform:translateY(-18px)}
+.subpage .sp-split-light{position:relative;z-index:2;display:flex;align-items:center;gap:clamp(24px,2.6vw,40px);margin-right:-56px;padding:clamp(32px,3vw,44px) clamp(72px,6vw,104px) clamp(32px,3vw,44px) clamp(32px,4.2vw,80px);background:#fff;border-radius:0 3px 3px 0;box-shadow:0 2px 6px rgba(0,8,20,.25),0 24px 48px -6px rgba(0,8,20,.55),0 48px 90px -10px rgba(0,8,20,.55);transform:translateY(-18px)}
 .subpage .sp-split-light p{font-size:clamp(17px,1.25vw,20px);line-height:1.6;color:#29465c}
 .subpage .sp-badge{flex:none;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:124px;height:124px;border-radius:50%;text-align:center}
 .subpage .sp-badge:before{content:'';position:absolute;inset:0;border-radius:50%;padding:3px;background:var(--sub-gold);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
@@ -137,7 +137,7 @@
 .subpage .sp-split-signature span{font:400 15px/1.5 var(--sans);color:rgba(246,242,234,.65);margin-left:4px}
 
 /* ---------- Ponuka: dve polovice cez celú šírku ---------- */
-.subpage .sp-halves{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--sub-deep)}
+.subpage .sp-halves{display:grid;grid-template-columns:1fr 1fr;background:var(--sub-deep)}
 .subpage .sp-half{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(420px,40vw,620px);padding:clamp(28px,4vw,64px);overflow:hidden;color:#f6f2ea}
 .subpage .sp-half img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.65,.3,1)}
 .subpage .sp-half:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,14,28,0) 35%,rgba(2,14,28,.55) 100%)}
@@ -147,11 +147,28 @@
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.subpage .sp-half:hover img{transform:scale(1.04)}}
 
 /* ---------- Realizácie: všetky fotografie vedľa seba cez celú šírku ---------- */
-.subpage .sp-projects-row{padding:clamp(80px,8vw,120px) 0;background:var(--sub-gray)}
+.subpage .sp-projects-row{position:relative;isolation:isolate;overflow:hidden;padding:clamp(80px,8vw,120px) 0;background:var(--sub-gray)}
+.subpage .sp-projects-row:before,.subpage .sp-projects-row:after{content:'';position:absolute;z-index:-1;pointer-events:none;width:min(1100px,78vw);aspect-ratio:1100/520;background:var(--navy);opacity:.09;-webkit-mask:url("../../images/shared/dot-wave.svg") center/contain no-repeat;mask:url("../../images/shared/dot-wave.svg") center/contain no-repeat}
+.subpage .sp-projects-row:before{top:-8%;left:-18%;transform:scaleX(-1)}
+.subpage .sp-projects-row:after{bottom:-14%;right:-16%}
 .subpage .sp-strip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px}
 .subpage .sp-strip li{aspect-ratio:1/1;overflow:hidden}
 .subpage .sp-strip img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.65,.3,1)}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.subpage .sp-strip li:hover img{transform:scale(1.06)}}
+
+/* ---------- Náš tím: fotka od okraja, karta prečnieva nad sekciu, showroom na tmavom ---------- */
+.subpage .sp-team{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr}
+.subpage .sp-team-photo{position:relative;min-height:clamp(460px,40vw,620px)}
+.subpage .sp-team-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% center}
+.subpage .sp-team-side{display:flex;flex-direction:column;background-color:var(--sub-deep);background-image:url("../../images/shared/wave-texture.svg");background-size:cover;background-position:center;padding:0 max(32px,calc((100vw - var(--sub-content))/2)) clamp(48px,5vw,72px) 0}
+.subpage .sp-team-card{position:relative;z-index:3;margin:calc(-1 * clamp(80px,7vw,110px)) 0 0 -28px;padding:clamp(36px,3.6vw,56px) clamp(32px,4vw,64px);background:#fff;color:var(--text);border-radius:3px;box-shadow:0 2px 6px rgba(0,8,20,.18),0 24px 48px -6px rgba(0,8,20,.4),0 48px 90px -10px rgba(0,8,20,.4)}
+.subpage .sp-team-card h2{font-family:var(--heading);font-weight:400;font-size:clamp(30px,2.6vw,42px);line-height:1.1;letter-spacing:-.02em;color:#0b2540}
+.subpage .sp-team-card h2:after{content:'';display:block;width:52px;height:1px;margin-top:20px;background:var(--stone)}
+.subpage .sp-team-card p{margin-top:18px;font-size:17px;line-height:1.65;color:#3d5266;max-width:520px}
+.subpage .sp-team-showroom{margin-top:auto;padding:clamp(40px,4vw,64px) 0 0 clamp(32px,4vw,64px);color:#f6f2ea}
+.subpage .sp-team-showroom h3{font-family:var(--heading);font-weight:400;font-size:clamp(32px,3vw,50px);line-height:1.1;letter-spacing:-.02em;color:#f6f2ea}
+.subpage .sp-team-showroom h3 span{display:block;background:var(--sub-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.subpage .sp-team-showroom p{margin-top:16px;font-size:16px;color:rgba(246,242,234,.7)}
 
 /* ---------- Logá klientov ---------- */
 .subpage .sp-logos{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(16px,3vw,48px);align-items:center}
@@ -181,7 +198,11 @@
 /* ---------- Responzivita ---------- */
 @media(max-width:900px){
  .subpage{--sub-gutter:6%}
- .subpage .sp-split,.subpage .sp-halves{grid-template-columns:1fr}
+ .subpage .sp-split,.subpage .sp-halves,.subpage .sp-team{grid-template-columns:1fr}
+ .subpage .sp-team-photo{min-height:340px}
+ .subpage .sp-team-side{padding:0 6% 48px}
+ .subpage .sp-team-card{margin:-56px 0 0}
+ .subpage .sp-team-showroom{padding:40px 0 0}
  .subpage .sp-split{margin:-56px 0 -48px}
  .subpage .sp-split-light{margin:0 8% 0 0;padding:32px 6%;transform:none}
  .subpage .sp-split-dark{margin:20px 0 0 8%}
