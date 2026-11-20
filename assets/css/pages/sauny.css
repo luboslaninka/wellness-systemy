@@ -25,8 +25,6 @@
 .sauny-page .sp-button{display:inline-flex;align-items:center;gap:16px;padding:14px 24px;border:1px solid var(--sp-cta-border);border-radius:30px;background:var(--sp-cta);color:#fff;font-size:16px;font-weight:600;white-space:nowrap;transition:background .25s,border-color .25s,color .25s}
 .sauny-page .sp-button:hover{background:var(--cream);border-color:var(--cream);color:var(--navy)}
 .sauny-page .sp-button svg{width:18px;height:18px}
-.sauny-page .sp-button-ghost{background:transparent;border-color:#f3efe780;color:var(--cream)}
-.sauny-page .sp-button-ghost:hover{background:var(--cream);color:var(--navy)}
 
 .sauny-page .sp-link{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--light-blue);padding-bottom:5px;transition:color .25s,border-color .25s}
 .sauny-page .sp-link:hover{color:var(--blue);border-color:var(--blue)}
@@ -106,15 +104,6 @@
 .sauny-page .sp-panorama{height:clamp(260px,34vw,560px);overflow:hidden;background:var(--sp-deep)}
 .sauny-page .sp-panorama img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* ---------- Kontakt ---------- */
-.sauny-page .sp-contact{padding:110px var(--sp-gutter) 120px;color:var(--cream);background-color:var(--sp-deep);background-image:url("../../images/shared/wave-texture.svg");background-size:cover;background-position:center}
-.sauny-page .sp-contact-inner{max-width:760px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
-.sauny-page .sp-contact h2{font-family:var(--heading);font-weight:400;font-size:clamp(36px,3.6vw,60px);line-height:1.1;letter-spacing:-.015em;color:#eee8dd;margin-top:18px}
-.sauny-page .sp-contact h2:after{content:'';display:block;width:52px;height:1px;margin:22px auto 0;background:var(--stone);opacity:.8}
-.sauny-page .sp-contact-lead{margin-top:22px;font-size:20px;line-height:1.55;color:#e1e6e8}
-.sauny-page .sp-contact-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:36px}
-.sauny-page .sp-contact-details{margin-top:30px;font-style:normal;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;font-size:15px;color:#b9cbd9}
-
 /* ---------- Responzivita ---------- */
 @media(max-width:1100px){
  .sauny-page .sp-tiles{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 24px 30px;margin-bottom:-24px;scrollbar-width:none}
@@ -142,7 +131,7 @@
  .sauny-page .sp-tile-name{font-size:17px}
  .sauny-page .sp-types{padding-top:72px}
  .sauny-page .sp-types-head{margin-bottom:40px}
- .sauny-page .sp-types-head p:last-child,.sauny-page .sp-contact-lead{font-size:18px}
+ .sauny-page .sp-types-head p:last-child{font-size:18px}
  .sauny-page .sp-type-copy>p:not(.sp-eyebrow){font-size:17px}
  .sauny-page .sp-stats{padding-bottom:72px}
  .sauny-page .sp-stats-list{grid-template-columns:1fr;gap:28px}
@@ -150,5 +139,4 @@
  .sauny-page .sp-process{padding:72px 6%}
  .sauny-page .sp-process-head{margin-bottom:36px}
  .sauny-page .sp-steps{grid-template-columns:1fr;gap:12px}
- .sauny-page .sp-contact{padding:80px 7%}
 }

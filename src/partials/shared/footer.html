@@ -1,4 +1,57 @@
-<footer class="site-footer">
- <div class="page-width footer-main"><a class="footer-brand" href="{{ base }}index.html" aria-label="WELLNESS SYSTEMY — úvod"><img src="{{ base }}assets/images/shared/logo.png" width="187" height="77" alt="WELLNESS SYSTEMY"></a><address>Za Tehelňou 657<br>053 21 Markušovce<br><span>Biznis Park WELLGRUP</span></address><div class="footer-links"><a href="mailto:info@wellness-systemy.sk">info@wellness-systemy.sk</a><a href="https://wellness-systemy.sk/realizacie/">Realizácie</a><a href="https://wellness-systemy.sk/kontakty/">Kontaktné a firemné údaje</a></div></div>
- <div class="page-width footer-bottom"><span>WELLNESS SYSTEMY</span><a href="{{ base }}index.html">Váš priestor pre oddych</a></div>
+<footer class="site-footer" id="kontakt" aria-labelledby="footer-heading">
+ <div class="footer-inner">
+  <div class="footer-intro">
+   <a class="footer-logo" href="{{ base }}./" aria-label="WELLNESS SYSTEMY — úvod"><img src="{{ base }}assets/images/shared/logo.png" width="187" height="77" alt="WELLNESS SYSTEMY" loading="lazy"></a>
+   <p class="footer-eyebrow">Kontakt</p>
+   <h2 id="footer-heading">V prípade záujmu nám neváhajte napísať</h2>
+   <p class="footer-lead">Radi vám pomôžeme s výberom, návrhom aj montážou.</p>
+   <address class="footer-details">
+    <a href="tel:+421534298420"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>053 4298 420</a>
+    <a href="mailto:info@wellness-systemy.sk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3ZM3 6l9 7 9-7"/></svg>info@wellness-systemy.sk</a>
+    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Za Tehelňou 657, 053 21 Markušovce</span>
+   </address>
+  </div>
+
+  <form class="footer-form" id="kontaktny-formular" novalidate aria-labelledby="form-heading">
+   <h3 id="form-heading">Otázka / dopyt</h3>
+   <div class="form-row">
+    <div class="form-field">
+     <label for="f-meno">Meno <span aria-hidden="true">*</span></label>
+     <input id="f-meno" name="meno" type="text" autocomplete="name" required aria-describedby="f-meno-err">
+     <p class="form-error" id="f-meno-err"></p>
+    </div>
+    <div class="form-field">
+     <label for="f-email">E-mail <span aria-hidden="true">*</span></label>
+     <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="f-email-err">
+     <p class="form-error" id="f-email-err"></p>
+    </div>
+   </div>
+   <div class="form-field">
+    <label for="f-telefon">Telefón</label>
+    <input id="f-telefon" name="telefon" type="tel" autocomplete="tel">
+   </div>
+   <div class="form-field">
+    <label for="f-sprava">Správa</label>
+    <textarea id="f-sprava" name="sprava" rows="4"></textarea>
+   </div>
+   <div class="form-honeypot" aria-hidden="true">
+    <label for="f-web">Toto pole nechajte prázdne</label>
+    <input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off">
+   </div>
+   <div class="form-field form-consent">
+    <input id="f-suhlas" name="suhlas" type="checkbox" required aria-describedby="f-suhlas-err">
+    <label for="f-suhlas">Súhlasím so spracovaním osobných údajov na účel vybavenia mojej otázky. <span aria-hidden="true">*</span></label>
+    <p class="form-error" id="f-suhlas-err"></p>
+   </div>
+   <div class="form-actions">
+    <button class="footer-button" type="submit">Odoslať <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></button>
+    <p class="form-note">Polia označené * sú povinné.</p>
+   </div>
+   <p class="form-status" id="f-status" role="status" aria-live="polite"></p>
+  </form>
+ </div>
+ <div class="footer-bottom">
+  <span>© WELLNESS SYSTEMY, s.r.o.</span>
+  <span>Bazény · Sauny · Wellness</span>
+ </div>
 </footer>

@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="{{ base }}assets/css/shared/base.css">
 <link rel="stylesheet" href="{{ base }}assets/css/pages/home.css">
 <link rel="stylesheet" href="{{ base }}assets/css/pages/sauny.css">
+<link rel="stylesheet" href="{{ base }}assets/css/shared/footer.css">
 </head>
 <body class="sauny-page">
 <a class="skip" href="#hlavny-obsah">Preskočiť na obsah</a>
@@ -22,8 +23,9 @@
 {{ include: sauny/cisla.html }}
 {{ include: sauny/postup.html }}
 {{ include: sauny/panorama.html }}
-{{ include: sauny/kontakt.html }}
 </main>
+{{ include: shared/footer.html }}
 <script src="{{ base }}assets/js/shared/navigation.js" defer></script>
+<script src="{{ base }}assets/js/shared/footer-form.js" defer></script>
 </body>
 </html>
