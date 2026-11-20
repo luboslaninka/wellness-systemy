@@ -51,6 +51,8 @@
 .subpage .sp-band-dark{background:radial-gradient(120% 120% at 15% 0%,#0f3152 0%,var(--sub-dark) 55%,var(--sub-deep) 100%);color:var(--cream)}
 .subpage .sp-band-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,120px);align-items:center}
 .subpage .sp-media-right .sp-media{order:2}
+.subpage .sp-band-inner.sp-media-xl{grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:clamp(48px,5vw,88px)}
+.subpage .sp-media-xl .sp-copy{justify-self:start}
 
 /* Jemný vzor: bodková vlna odvodená z loga, za fotkou a smerom k okraju obrazovky */
 .subpage .sp-band{position:relative;isolation:isolate;overflow:hidden}
@@ -111,21 +113,50 @@
 .subpage .sp-band-dark .sp-section-head h2{color:#f6f2ea}
 .subpage .sp-section-foot{margin-top:clamp(40px,4vw,56px);text-align:center}
 
-/* ---------- Ponuka: dve fotodlaždice ---------- */
-.subpage .sp-promos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.4vw,32px)}
-.subpage .sp-promo{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(300px,28vw,420px);padding:clamp(28px,3vw,44px);border-radius:12px;overflow:hidden;color:#f6f2ea;box-shadow:0 24px 50px rgba(2,14,28,.22)}
-.subpage .sp-promo img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.65,.3,1)}
-.subpage .sp-promo:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,14,28,.05) 25%,rgba(2,14,28,.82) 100%)}
-.subpage .sp-promo-copy{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
-.subpage .sp-promo-title{font-family:var(--heading);font-size:clamp(26px,2.3vw,38px);line-height:1.12;letter-spacing:-.02em;max-width:440px}
-.subpage .sp-promo:hover .sp-button{background:var(--cream);border-color:var(--cream);color:var(--navy)}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){.subpage .sp-promo:hover img{transform:scale(1.04)}}
+/* ---------- Úvod o firme: polovica svetlá, polovica tmavá (podľa vzorovej homepage) ---------- */
+.subpage .sp-split{display:grid;grid-template-columns:1fr 1fr}
+.subpage .sp-split-light{display:flex;align-items:center;gap:clamp(28px,3vw,48px);padding:clamp(56px,6vw,96px) clamp(32px,5vw,88px) clamp(56px,6vw,96px) max(32px,calc((100vw - var(--sub-content))/2));background:#fff}
+.subpage .sp-split-light p{font-size:clamp(19px,1.45vw,23px);line-height:1.6;color:#29465c;max-width:520px}
+.subpage .sp-badge{flex:none;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:150px;height:150px;border-radius:50%;text-align:center}
+.subpage .sp-badge:before{content:'';position:absolute;inset:0;border-radius:50%;padding:3px;background:var(--sub-gold);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.subpage .sp-badge strong{font-family:var(--heading);font-weight:400;font-size:62px;line-height:.95;letter-spacing:-.04em;background:var(--sub-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.subpage .sp-badge span{margin-top:6px;font-size:14px;line-height:1.25;color:var(--navy)}
+.subpage .sp-split-dark{display:flex;align-items:center;padding:clamp(56px,6vw,96px) max(32px,calc((100vw - var(--sub-content))/2)) clamp(56px,6vw,96px) clamp(32px,5vw,88px);background:radial-gradient(120% 120% at 0% 0%,#0f3152 0%,#061b31 55%,#020e1c 100%);color:#f6f2ea}
+.subpage .sp-split-card{position:relative;padding:clamp(32px,3.4vw,52px)}
+.subpage .sp-split-frame{position:absolute;inset:0;border-radius:12px;pointer-events:none;border:1.5px solid #d4af62}
+@supports ((mask-composite:exclude) or (-webkit-mask-composite:xor)){
+ .subpage .sp-split-frame{border:0}
+ .subpage .sp-split-frame:before{content:'';position:absolute;inset:0;padding:2px;border-radius:inherit;background:var(--sub-gold);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+}
+.subpage .sp-split-card p{position:relative;font-size:17px;line-height:1.7;color:rgba(246,242,234,.8)}
+.subpage .sp-split-card p+p{margin-top:18px}
+.subpage .sp-split-card .sp-split-signature{margin-top:28px;text-align:right;font-family:var(--heading);font-size:22px;color:#f6f2ea}
+.subpage .sp-split-signature span{font:400 16px/1.5 var(--sans);color:rgba(246,242,234,.65);margin-left:4px}
 
-/* ---------- Galéria realizácií ---------- */
-.subpage .sp-gallery{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)}
-.subpage .sp-gallery li{border-radius:12px;overflow:hidden;aspect-ratio:3/2;box-shadow:0 18px 40px rgba(0,6,14,.4)}
-.subpage .sp-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.65,.3,1)}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){.subpage .sp-gallery li:hover img{transform:scale(1.05)}}
+/* ---------- Ponuka: dve polovice cez celú šírku ---------- */
+.subpage .sp-halves{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--sub-deep)}
+.subpage .sp-half{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(420px,40vw,620px);padding:clamp(28px,4vw,64px);overflow:hidden;color:#f6f2ea}
+.subpage .sp-half img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.65,.3,1)}
+.subpage .sp-half:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,14,28,0) 35%,rgba(2,14,28,.55) 100%)}
+.subpage .sp-half-card{display:flex;flex-direction:column;align-items:flex-start;gap:26px;max-width:460px;padding:clamp(28px,3vw,44px);border-radius:12px;background:rgba(6,21,46,.86);box-shadow:0 24px 50px rgba(0,6,14,.4)}
+.subpage .sp-half-title{font-family:var(--heading);font-size:clamp(26px,2.3vw,38px);line-height:1.12;letter-spacing:-.02em}
+.subpage .sp-half:hover .sp-button{background:var(--cream);border-color:var(--cream);color:var(--navy)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.subpage .sp-half:hover img{transform:scale(1.04)}}
+
+/* ---------- Realizácie: slider cez celú šírku ---------- */
+.subpage .sp-slider-band{padding:clamp(80px,8vw,120px) 0;background:radial-gradient(120% 120% at 15% 0%,#0f3152 0%,var(--sub-dark) 55%,var(--sub-deep) 100%);color:var(--cream)}
+.subpage .sp-slider-band .sp-section-head h2{color:#f6f2ea}
+.subpage .sp-slider{position:relative}
+.subpage .sp-slider-track{list-style:none;margin:0;padding:0;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 4px)/3);gap:2px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;outline-offset:-3px}
+.subpage .sp-slider-track::-webkit-scrollbar{display:none}
+.subpage .sp-slide{scroll-snap-align:start;aspect-ratio:4/3;overflow:hidden}
+.subpage .sp-slide img{display:block;width:100%;height:100%;object-fit:cover}
+.subpage .sp-slider-btn{position:absolute;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(6,21,46,.6);color:#fff;cursor:pointer;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .25s,color .25s}
+.subpage .sp-slider-btn:hover{background:var(--cream);color:var(--navy)}
+.subpage .sp-slider-btn svg{width:22px;height:22px;stroke-width:1.6}
+.subpage .sp-slider-prev{left:clamp(12px,2vw,32px)}
+.subpage .sp-slider-next{right:clamp(12px,2vw,32px)}
+@media(prefers-reduced-motion:reduce){.subpage .sp-slider-track{scroll-behavior:auto}}
 
 /* ---------- Logá klientov ---------- */
 .subpage .sp-logos{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(16px,3vw,48px);align-items:center}
@@ -155,7 +186,10 @@
 /* ---------- Responzivita ---------- */
 @media(max-width:900px){
  .subpage{--sub-gutter:6%}
- .subpage .sp-band-inner{grid-template-columns:1fr;gap:56px}
+ .subpage .sp-split,.subpage .sp-halves{grid-template-columns:1fr}
+ .subpage .sp-split-light,.subpage .sp-split-dark{padding:56px 6%}
+ .subpage .sp-slider-track{grid-auto-columns:calc((100% - 2px)/2)}
+ .subpage .sp-band-inner,.subpage .sp-band-inner.sp-media-xl{grid-template-columns:1fr;gap:56px}
  .subpage .sp-media-right .sp-media{order:0}
  .subpage .sp-media,.subpage .sp-media-left .sp-media{margin:0 18px 18px 0}
  .subpage .sp-frame,.subpage .sp-media-left .sp-frame{inset:18px -18px -18px 18px}
@@ -171,8 +205,10 @@
  .subpage .sp-intro p:last-child{font-size:17px}
  .subpage .sp-band{padding:64px 6% 72px}
  .subpage .sp-copy p{font-size:16px}
- .subpage .sp-promos{grid-template-columns:1fr}
- .subpage .sp-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .subpage .sp-split-light{flex-direction:column;align-items:flex-start}
+ .subpage .sp-slider-track{grid-auto-columns:86%}
+ .subpage .sp-slider-btn{width:46px;height:46px}
+ .subpage .sp-half{min-height:380px;padding:20px}
  .subpage .sp-logos{grid-template-columns:repeat(3,minmax(0,1fr))}
  .subpage .sp-list li{font-size:16px}
  .subpage .sp-band:before{width:150vw;bottom:-2%;right:-60%}

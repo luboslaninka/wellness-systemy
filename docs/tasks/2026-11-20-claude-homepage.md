@@ -11,7 +11,9 @@
 - `src/pages/index.html` – pripojené `shared/subpage.css`, `shared/footer.css`, pätička a `footer-form.js`; `body.subpage`
 - `src/partials/home/{onas,ponuka,realizacie,klienti,tim}.html` (nové)
 - `assets/images/home/{komplexne-riesenia,ponuka-virivky,ponuka-sauny,nas-tim}.jpg`, `assets/images/home/realizacie/*`, `assets/images/home/klienti/*` – zo vzorového webu
-- `assets/css/shared/subpage.css` – nové spoločné prvky: podnadpis, podpis, hlavička sekcie, fotodlaždice ponuky, galéria, logá
+- `assets/css/shared/subpage.css` – nové spoločné prvky: podnadpis, podpis, hlavička sekcie, delený úvod, polovice ponuky, slider, logá, široká fotografia
+- `assets/js/shared/slider.js` – slider realizácií
+- šípky v tlačidlách: `src/partials/{shared,sauny,bazeny,home}/*.html`
 - Odstránené: `src/partials/home/{experience,showcase}.html`, `assets/css/sections/home-{experience,showcase}.css`, `assets/images/home/sauna-panorama.jpg`, `assets/images/shared/vyrocie.png`
 
 ## Zásahy do spoločných súborov
@@ -21,7 +23,9 @@ Doplnky v `shared/subpage.css` sú nové triedy; Sauny a Bazény sa nemenia.
 
 ## Obsah
 
-Komplexné riešenia (text a podpis konateľa), ponuka víriviek a sáun (sauny vedú na novú podstránku), posledné realizované projekty, naši spokojní klienti, náš tím vám pomôže a showroom, pätička. Texty doslova zo vzoru.
+Podľa spätnej väzby Ľuba: úvod o firme ako na vzore (biela polovica s odznakom 26 rokov a prvým odsekom, tmavá polovica so zlatým rámikom, textom a podpisom konateľa), ponuka víriviek a sáun ako dve polovice cez celú šírku, posledné realizované projekty ako slider cez celú šírku (tlačidlá, šípky na klávesnici, automatický posun s pauzou pri myši/fokuse a vypnutý pri obmedzenom pohybe), naši spokojní klienti, náš tím vám pomôže s výrazne väčšou fotografiou a showroom, pätička. Texty doslova zo vzoru.
+
+Na celom webe sú odstránené šípky z CTA tlačidiel (aj „Kontaktujte nás“ v hlavičke a „Odoslať“ v pätičke).
 
 ## Overenie
 
