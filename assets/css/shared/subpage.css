@@ -97,6 +97,41 @@
 .subpage .sp-band-dark .sp-more a:hover{color:var(--sub-cta)}
 .subpage .sp-band-dark .sp-media img{box-shadow:0 24px 50px rgba(0,6,14,.5)}
 
+/* ---------- Doplnky textu: podnadpis a podpis ---------- */
+.subpage .sp-copy h2+.sp-lead{margin-top:18px}
+.subpage .sp-copy .sp-lead{font-size:clamp(19px,1.5vw,22px);line-height:1.45;color:#0b2540}
+.subpage .sp-band-dark .sp-copy .sp-lead{color:#f6f2ea}
+.subpage .sp-copy .sp-signature{margin-top:28px;font-family:var(--heading);font-size:22px;color:#0b2540}
+.subpage .sp-signature span{font:400 16px/1.5 var(--sans);color:var(--muted);margin-left:4px}
+
+/* ---------- Hlavička a pätka sekcie bez fotografie ---------- */
+.subpage .sp-section-head{text-align:center;margin-bottom:clamp(40px,4vw,56px)}
+.subpage .sp-section-head h2{font-family:var(--heading);font-weight:400;font-size:clamp(34px,3vw,50px);line-height:1.1;letter-spacing:-.022em;color:#0b2540}
+.subpage .sp-section-head h2:after{content:'';display:block;width:52px;height:1px;margin:22px auto 0;background:var(--stone)}
+.subpage .sp-band-dark .sp-section-head h2{color:#f6f2ea}
+.subpage .sp-section-foot{margin-top:clamp(40px,4vw,56px);text-align:center}
+
+/* ---------- Ponuka: dve fotodlaždice ---------- */
+.subpage .sp-promos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.4vw,32px)}
+.subpage .sp-promo{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(300px,28vw,420px);padding:clamp(28px,3vw,44px);border-radius:12px;overflow:hidden;color:#f6f2ea;box-shadow:0 24px 50px rgba(2,14,28,.22)}
+.subpage .sp-promo img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.65,.3,1)}
+.subpage .sp-promo:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,14,28,.05) 25%,rgba(2,14,28,.82) 100%)}
+.subpage .sp-promo-copy{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.subpage .sp-promo-title{font-family:var(--heading);font-size:clamp(26px,2.3vw,38px);line-height:1.12;letter-spacing:-.02em;max-width:440px}
+.subpage .sp-promo:hover .sp-button{background:var(--cream);border-color:var(--cream);color:var(--navy)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.subpage .sp-promo:hover img{transform:scale(1.04)}}
+
+/* ---------- Galéria realizácií ---------- */
+.subpage .sp-gallery{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)}
+.subpage .sp-gallery li{border-radius:12px;overflow:hidden;aspect-ratio:3/2;box-shadow:0 18px 40px rgba(0,6,14,.4)}
+.subpage .sp-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.65,.3,1)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.subpage .sp-gallery li:hover img{transform:scale(1.05)}}
+
+/* ---------- Logá klientov ---------- */
+.subpage .sp-logos{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(16px,3vw,48px);align-items:center}
+.subpage .sp-logos img{display:block;width:100%;height:auto;mix-blend-mode:multiply;filter:grayscale(1);opacity:.65;transition:filter .3s,opacity .3s}
+.subpage .sp-logos li:hover img{filter:none;opacity:1}
+
 /* ---------- Čísla hovoria za nás ---------- */
 .subpage .sp-stats{padding:clamp(80px,8vw,120px) var(--sub-gutter);text-align:center;color:var(--cream);background-color:var(--sub-deep);background-image:url("../../images/shared/wave-texture.svg");background-size:cover;background-position:center}
 .subpage .sp-stats h2{font-family:var(--heading);font-weight:400;font-size:clamp(34px,3vw,50px);line-height:1.1;letter-spacing:-.022em;color:#f6f2ea}
@@ -136,6 +171,9 @@
  .subpage .sp-intro p:last-child{font-size:17px}
  .subpage .sp-band{padding:64px 6% 72px}
  .subpage .sp-copy p{font-size:16px}
+ .subpage .sp-promos{grid-template-columns:1fr}
+ .subpage .sp-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .subpage .sp-logos{grid-template-columns:repeat(3,minmax(0,1fr))}
  .subpage .sp-list li{font-size:16px}
  .subpage .sp-band:before{width:150vw;bottom:-2%;right:-60%}
  .subpage .sp-band:has(.sp-media-left):before{left:-60%}
