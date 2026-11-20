@@ -6,6 +6,7 @@
  --sp-deep:#020e1c;
  --sp-dark:#061b31;
  --sp-light:#f5f5f7;
+ --sp-gray:#eef0f3;
  --sp-cta:#da9f55;
  --sp-cta-border:#cb9c47;
  --sp-gold:linear-gradient(135deg,#80602b 0%,#c29543 13%,#f5df9d 27%,#b18435 40%,#e8c875 57%,#fff0bc 68%,#a77a2e 83%,#dcb969 100%);
@@ -46,6 +47,7 @@
 /* ---------- Pásy typov sáun: svetlý / tmavý na striedačku ---------- */
 .sauny-page .sp-band{padding:clamp(80px,8vw,128px) var(--sp-gutter)}
 .sauny-page .sp-band-light{background:#fff;color:var(--text)}
+.sauny-page .sp-band-gray{background:var(--sp-gray);color:var(--text)}
 .sauny-page .sp-band-dark{background:radial-gradient(120% 120% at 15% 0%,#0f3152 0%,var(--sp-dark) 55%,var(--sp-deep) 100%);color:var(--cream)}
 .sauny-page .sp-band-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,120px);align-items:center}
 .sauny-page .sp-media-right .sp-media{order:2}
