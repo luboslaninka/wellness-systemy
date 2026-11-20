@@ -14,7 +14,7 @@
 - `assets/css/sections/bazeny-{hero,solutions,complements}.css`
 - `assets/images/bazeny/*`
 - `assets/css/shared/{header,subpage}.css`
-- `src/partials/shared/{header,footer}.html`
+- `src/partials/shared/{subpage-header,footer}.html`
 - Tento záznam úlohy.
 
 ## Výsledok a spoločné súbory
@@ -24,9 +24,11 @@ samostatný produktový blok IronPool, e-mailový a telefonický kontakt a päti
 Nové spoločné CSS sa zatiaľ načítava iba na podstránke. Homepage nenačítava nové
 štýly ani pätičku; jej chránená CSS kaskáda zostáva nezmenená.
 
-Spoločný header používa rovnaký HTML partial aj navigačný skript ako homepage.
-Jeho odkazy na logo, Riešenia a Produkty teraz používajú relatívny odkaz na homepage,
-aby fungovali aj z `/bazeny/`. Vizuálne rozloženie homepage sa nemení.
+Podstránka používa dočasný `shared/subpage-header.html` s relatívnymi odkazmi na
+homepage a existujúci navigačný skript. Pôvodný `shared/header.html` sa nemení.
+Počas práce vznikol Claudeov PR #3 (`claude/header-links`), ktorý opravuje spoločný
+header a kontrolu ciest. Aby sa úlohy neprekrývali, Bazény jeho súbory nemenia.
+Po zlúčení #3 možno dočasný partial odstrániť a Bazény prepnúť na spoločný header.
 Ostatné podstránky a plošné presmerovanie navigácie nie sú súčasťou tejto úlohy.
 
 `shared/header.css` zachytáva výsledný vzhľad hlavičky pre podstránky.
@@ -61,6 +63,6 @@ pri obsahovej revízii. Tento prototyp nie je úplnou migráciou každej inform�
 - Desktop: vizuálne skontrolovaný úvod, obsahové riešenia, kontakt a pätička.
 - Mobil: skontrolované rozloženie pri úzkej šírke, bez horizontálneho pretekania dokumentu; mobilná navigácia sa otvára, zatvára cez Escape a odkaz Produkty vedie na homepage.
 - Klávesnica: menu reaguje na Enter a Escape. Obsahové odkazy fungujú bez JavaScriptu; stránka nepridáva animácie fotografií.
-- Homepage: pôvodné CSS a obsahové partialy zostávajú nezmenené; jedinou zmenou jej výsledného HTML sú tri odkazy v zdieľanom headeri.
+- Homepage: pôvodné CSS a obsahové partialy zostávajú nezmenené; výsledné HTML homepage zostáva totožné.
 
 Pred paralelnou výrobou ďalších podstránok má Ľubo odsúhlasiť tento vizuálny vzor.
