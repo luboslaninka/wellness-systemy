@@ -10,7 +10,7 @@
 
 - `src/pages/bazeny/index.html`
 - `src/partials/bazeny/{hero,typy,cisla,realizacie}.html`
-- `assets/images/bazeny/*.jpg` (Unsplash, bezplatná licencia; `ironpool.jpg` je fotografia IRONPOOL z pôvodného webu)
+- `assets/images/bazeny/*.jpg` (Unsplash, bezplatná licencia; `ironpool.jpg` a `prekrytia.jpg` sú fotografie z pôvodného webu, prekrytie dodal Ľubo)
 - `assets/css/shared/subpage.css` – spoločný vzor podstránok (presunutý zo Sáun, výsledok Sáun je pixelovo rovnaký)
 - `assets/js/shared/counters.js` – narátanie čísel (presunuté zo Sáun)
 - `docs/tasks/2026-11-20-claude-bazeny.md`
