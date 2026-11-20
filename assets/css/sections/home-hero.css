@@ -1,3 +1,8 @@
 /* Styles specific to the home hero section.
    Keep existing approved rules in pages/home.css; add scoped changes here. */
 .choice.is-linked,.choice.is-linked .choice-button{cursor:pointer}
+/* Výkon: svetelné záblesky v pozadí vykresľovať v samostatnej vrstve a pozastaviť, keď úvod nie je na obrazovke. */
+.wave-lights{contain:strict;will-change:transform}
+.split-hero.is-offscreen .wave-lights path{animation-play-state:paused}
+/* Výkon: rozmazaná „žiara“ okolo zábleskov (filter + široký ťah) spôsobovala sekanie pri scrolle; ostáva len ostrý záblesk. */
+.wave-glint-halo{display:none}
